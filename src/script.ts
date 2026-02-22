@@ -49,9 +49,40 @@ function renderExpenses(expenses: any[]) {
             <div>${expense.category}</div>
             <div>₹${expense.amount}</div>
             <div>${expense.date}</div>
+            <div>
+                <button class="delete-btn" data-id="${expense.id}">
+                    Delete
+                </button>
+            </div>
         `;
+
         container.appendChild(row);
     });
+
+    attachDeleteEvents();
+}
+
+function attachDeleteEvents() {
+    const buttons = document.querySelectorAll(".delete-btn");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const id = Number((button as HTMLElement).getAttribute("data-id"));
+            deleteExpense(id);
+            getAllExpenses(); // refresh UI
+        });
+    });
+}
+
+function deleteExpense(id: number) {
+    const transaction = db.transaction("expenses", "readwrite");
+    const store = transaction.objectStore("expenses");
+
+    const request = store.delete(id);
+
+    request.onsuccess = () => {
+        console.log("Deleted:", id);
+    };
 }
 
 function saveExpense(expense: any) {

@@ -1,6 +1,3 @@
-// const addExpenseBtn = document.getElementById("add-expense-btn");
-// const cardContainer = document.getElementById("card-container");
-// const form = document.getElementById("expense-form");
 const expenses = [];
 let db;
 const request = indexedDB.open("ExpenseDB", 1);
@@ -11,7 +8,6 @@ request.onupgradeneeded = function (event) {
 request.onsuccess = function (event) {
     db = event.target.result;
     console.log("Database ready");
-    // Load expenses automatically on page load
     getAllExpenses();
 };
 function getAllExpenses() {
@@ -40,9 +36,33 @@ function renderExpenses(expenses) {
             <div>${expense.category}</div>
             <div>₹${expense.amount}</div>
             <div>${expense.date}</div>
+            <div>
+                <button class="delete-btn" data-id="${expense.id}">
+                    Delete
+                </button>
+            </div>
         `;
         container.appendChild(row);
     });
+    attachDeleteEvents();
+}
+function attachDeleteEvents() {
+    const buttons = document.querySelectorAll(".delete-btn");
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const id = Number(button.getAttribute("data-id"));
+            deleteExpense(id);
+            getAllExpenses();
+        });
+    });
+}
+function deleteExpense(id) {
+    const transaction = db.transaction("expenses", "readwrite");
+    const store = transaction.objectStore("expenses");
+    const request = store.delete(id);
+    request.onsuccess = () => {
+        console.log("Deleted:", id);
+    };
 }
 function saveExpense(expense) {
     const db = request.result;
@@ -72,7 +92,6 @@ function addExpenseToDatabase() {
     window.location.reload();
     console.log(`Added : Expense Name: ${name}, Category: ${category}, Amount: ${amount}`);
     console.log("Current Expenses:", expenses);
-    return false; // ❗ prevents page refresh
+    return false;
 }
-// addExpenseBtn?.addEventListener("click", () => { cardContainer?.classList.toggle('show'); });
 //# sourceMappingURL=script.js.map
