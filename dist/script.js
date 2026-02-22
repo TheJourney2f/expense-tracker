@@ -1,6 +1,6 @@
-const addExpenseBtn = document.getElementById("add-expense-btn");
-const cardContainer = document.getElementById("card-container");
-const form = document.getElementById("expense-form");
+// const addExpenseBtn = document.getElementById("add-expense-btn");
+// const cardContainer = document.getElementById("card-container");
+// const form = document.getElementById("expense-form");
 const expenses = [];
 const request = indexedDB.open("ExpenseDB", 1);
 request.onupgradeneeded = function (event) {
@@ -36,5 +36,5 @@ function addExpenseToDatabase() {
     console.log("Current Expenses:", expenses);
     return false; // ❗ prevents page refresh
 }
-addExpenseBtn?.addEventListener("click", () => { cardContainer?.classList.toggle('show'); });
+// addExpenseBtn?.addEventListener("click", () => { cardContainer?.classList.toggle('show'); });
 //# sourceMappingURL=script.js.map

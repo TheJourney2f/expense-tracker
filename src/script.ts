@@ -1,6 +1,6 @@
-const addExpenseBtn = document.getElementById("add-expense-btn");
-const cardContainer = document.getElementById("card-container");
-const form = document.getElementById("expense-form");
+// const addExpenseBtn = document.getElementById("add-expense-btn");
+// const cardContainer = document.getElementById("card-container");
+// const form = document.getElementById("expense-form");
 
 const expenses: {id: number, name: string, category: string, amount: number, date: string}[] = [];
 
@@ -41,4 +41,4 @@ function addExpenseToDatabase() {
     console.log("Current Expenses:", expenses);
     return false; // ❗ prevents page refresh
 }
-addExpenseBtn?.addEventListener("click", () => { cardContainer?.classList.toggle('show'); });
+// addExpenseBtn?.addEventListener("click", () => { cardContainer?.classList.toggle('show'); });
