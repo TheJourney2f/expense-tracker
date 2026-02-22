@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expence Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Expence Tracker</h1>
+    <button id="add-expense-btn">Add Expense</button>
+    <div id="card-container" class="card">
+        <h2>Add New Expense</h2>
+        <form onsubmit="return addExpenseToDatabase()">
+            <h3>Expense name</h3>
+            <input type="text" id="expense-name" name="expense-name" placeholder="Enter expense name" required>
+            <br>
+            <h3>Category</h3>
+            <label for="category-select"></label>
+            <select id="category-select" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="food">Food</option>
+            <option value="transport">Transport</option>
+            <option value="shopping">Shopping</option>
+            <option value="bills">Bills</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="subscriptions">Subscriptions</option>
+            <option value="savings">Savings</option>
+            <option value="medical">Medical</option>
+            <option value="travel">Travel</option>
+            <option value="other">Other</option>
+            </select>
+            <br>
+            <h3>Expense amount</h3>
+            <input type="number" id="expense-amount" name="expense-amount" placeholder="Enter an amount" required>
+            <br>
+            <button type="submit" id="add-btn">Add</button>
+        </form>
+    </div>
+    <script src="dist/script.js"></script>
+</body>
+</html>

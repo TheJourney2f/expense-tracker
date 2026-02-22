@@ -1,0 +1,77 @@
+h1 {
+    text-align: center;
+}
+
+#add-expense-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 24px;
+}
+.card {
+    padding: 20px;
+    margin: 20px auto;
+    border: 1px solid #ca1414;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 400px;
+    height: 500px; 
+
+    display: none;
+}
+.card.show {
+    display: block;
+}
+
+h3 {
+    text-align: center;
+}
+
+#expense-name {
+    margin: 20px auto;
+    width: 80%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#expense-name::placeholder {
+    color: gray;
+    opacity: 0.7;
+    font-size: 18px;
+    padding: 10px 10px;
+}
+
+#category-select {
+    margin: 20px auto;
+    width: 80%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 24px;
+    padding: 4px 11px;
+}
+
+#expense-amount {
+    margin: 20px auto;
+    width: 80%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#expense-amount::placeholder {
+    color: gray;
+    opacity: 0.7;
+    font-size: 18px;
+    padding: 10px 10px;
+}
+
+#add-btn {
+    display: block;
+    margin: -10px auto;
+    padding: 10px 40px;
+    font-size: 16px;
+    border-radius: 5px;
+}
