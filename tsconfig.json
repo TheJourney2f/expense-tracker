@@ -34,6 +34,7 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
+    "removeComments": true,
     "strict": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,

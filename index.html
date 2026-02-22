@@ -8,8 +8,8 @@
 </head>
 <body>
     <h1>Expence Tracker</h1>
-    <!-- <button id="add-expense-btn">Add Expense</button> -->
-    <div id="card-container" class="card">
+    <div class="layout">
+    <div id="add-expense-card" class="card small-card">
         <h2>Add New Expense</h2>
         <form onsubmit="return addExpenseToDatabase()">
             <h3>Expense name</h3>
@@ -36,6 +36,17 @@
             <br>
             <button type="submit" id="add-btn">Add</button>
         </form>
+    </div>
+    <div id="expense-history-card" class="card large-card">
+        <h2>Expense History</h2>
+        <div class="expenses-grid header">
+            <div>Name</div>
+            <div>Category</div>
+            <div>Amount</div>
+            <div>Date</div>
+        </div>
+        <div id="expenses-container"></div>
+    </div>
     </div>
     <script src="dist/script.js"></script>
 </body>
