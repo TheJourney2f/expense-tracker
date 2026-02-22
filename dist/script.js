@@ -64,13 +64,29 @@ function deleteExpense(id) {
         console.log("Deleted:", id);
     };
 }
-function saveExpense(expense) {
+function saveExpenseToDatabase(expense) {
     const db = request.result;
     const transaction = db.transaction("expenses", "readwrite");
     const store = transaction.objectStore("expenses");
     store.add(expense);
     transaction.oncomplete = () => {
         console.log("Expense saved to IndexedDB");
+    };
+}
+function calculateTotalAmount() {
+    const transaction = db.transaction("expenses", "readonly");
+    const store = transaction.objectStore("expenses");
+    const request = store.getAll();
+    request.onsuccess = function () {
+        const expenses = request.result;
+        let total = 0;
+        expenses.forEach((expense) => {
+            total += expense.amount;
+        });
+        const totalAmountElement = document.getElementById("total-amount");
+        if (totalAmountElement) {
+            totalAmountElement.textContent = `Total : ₹${total}`;
+        }
     };
 }
 function addExpenseToDatabase() {
@@ -88,7 +104,7 @@ function addExpenseToDatabase() {
         date: new Date().toISOString().split("T")[0]
     };
     expenses.push(expense);
-    saveExpense(expense);
+    saveExpenseToDatabase(expense);
     window.location.reload();
     console.log(`Added : Expense Name: ${name}, Category: ${category}, Amount: ${amount}`);
     console.log("Current Expenses:", expenses);

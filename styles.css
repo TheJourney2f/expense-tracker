@@ -53,19 +53,6 @@ h1 {
     background: #f5f5f5;
 }
 
-
-/* .card {
-    padding: 20px;
-    margin: 20px 20px;
-    border: 1px solid #ca1414;
-    border-radius: 5px;
-    margin-top: 10px;
-    width: 400px;
-    height: 500px; 
-
-    display: block;
-} */
-
 h3 {
     text-align: center;
 }
@@ -114,6 +101,19 @@ h3 {
 #add-btn {
     display: block;
     margin: -10px auto;
+    padding: 10px 40px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+#total-amount {
+    margin: 20px 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+#calculate-total-btn {
+    display: block;
+    margin: 20px 20px;
     padding: 10px 40px;
     font-size: 16px;
     border-radius: 5px;
